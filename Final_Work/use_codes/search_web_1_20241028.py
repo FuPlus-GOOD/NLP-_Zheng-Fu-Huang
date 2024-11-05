@@ -1,3 +1,5 @@
+# 这个是用来找前列腺癌迁移相关文献的爬虫代码，找到这些文献后用来筛选关键词
+
 import requests
 import xml.etree.ElementTree as ET
 import time
