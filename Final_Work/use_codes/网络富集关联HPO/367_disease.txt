@@ -1,0 +1,9 @@
+id 	 name
+OMIM:300068 	 Androgen insensitivity syndrome
+ORPHA:99429 	 Complete androgen insensitivity syndrome
+OMIM:300633 	 Hypospadias 1, X-linked
+ORPHA:481 	 Kennedy disease
+ORPHA:95706 	 Non-syndromic posterior hypospadias
+ORPHA:90797 	 Partial androgen insensitivity syndrome
+OMIM:312300 	 Reifenstein syndrome
+OMIM:313200 	 Spinal and bulbar muscular atrophy, X-linked 1

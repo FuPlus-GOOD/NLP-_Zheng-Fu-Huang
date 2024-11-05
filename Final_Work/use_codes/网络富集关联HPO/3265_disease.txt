@@ -1,0 +1,11 @@
+id 	 name
+OMIM:109800 	 Bladder cancer
+OMIM:218040 	 Costello syndrome
+ORPHA:3071 	 Costello syndrome
+OMIM:162900 	 Epidermal nevus, somatic
+ORPHA:2612 	 Linear nevus sebaceus syndrome
+OMIM:137550 	 Melanocytic nevus syndrome, congenital
+ORPHA:2874 	 Phakomatosis pigmentokeratotica
+OMIM:163200 	 Schimmelpenning-Feuerstein-Mims syndrome
+OMIM:188470 	 Thyroid cancer, nonmedullary, 2
+ORPHA:79414 	 Woolly hair nevus

@@ -1,0 +1,19 @@
+id 	 name
+OMIM:108010 	 Arteriovenous malformation of the brain, somatic
+OMIM:109800 	 Bladder cancer
+OMIM:114480 	 Breast cancer
+ORPHA:1340 	 Cardiofaciocutaneous syndrome
+OMIM:615278 	 Cardiofaciocutaneous syndrome 2
+ORPHA:2396 	 Encephalocraniocutaneous lipomatosis
+ORPHA:1333 	 Familial pancreatic carcinoma
+OMIM:613659 	 Gastric cancer, somatic
+OMIM:601626 	 Leukemia, acute myeloid
+ORPHA:2612 	 Linear nevus sebaceus syndrome
+OMIM:211980 	 Lung cancer, susceptibility to
+ORPHA:144 	 Lynch syndrome
+ORPHA:648 	 Noonan syndrome
+OMIM:609942 	 Noonan syndrome 3
+OMIM:600268 	 Oculoectodermal syndrome
+ORPHA:3339 	 Oculoectodermal syndrome
+OMIM:614470 	 RAS-associated autoimmune lymphoproliferative syndrome type IV, somatic
+OMIM:163200 	 Schimmelpenning-Feuerstein-Mims syndrome

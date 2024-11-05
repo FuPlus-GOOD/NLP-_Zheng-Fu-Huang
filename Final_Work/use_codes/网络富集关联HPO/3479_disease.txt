@@ -1,0 +1,3 @@
+id 	 name
+ORPHA:73272 	 Growth delay due to insulin-like growth factor type 1 deficiency
+OMIM:608747 	 Insulin-Like growth factor I deficiency

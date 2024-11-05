@@ -1,0 +1,183 @@
+\documentclass{article}
+\usepackage{xeCJK} 
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage{hyperref}
+\geometry{a4paper, margin=1in}
+
+\title{前列腺癌迁移基因图谱的探索}
+\author{符家豪，郑杰，黄家璇}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\section*{摘要}
+前列腺癌是全球男性中最常见的恶性肿瘤之一，其高转移性是导致患者预后不良的主要原因。为深入理解前列腺癌转移的复杂机制，本研究从分子、细胞和组织三个层面构建了全面的知识图谱。通过分析964组与前列腺癌相关的文献数据，筛选出影响癌症扩散的关键基因，并进行了GO和HPO富集分析与KEGG通路分析，最终将现有精准治疗手段与基因通路关联。研究结果表明，TP53、SIRPB1、PSMA等基因对前列腺癌转移具有重要影响。
+
+\section*{方法与材料}
+
+\subsection*{材料}
+
+\textbf{数据来源}：本研究使用了CancerAlterome研究整理的964组关键词为“Prostate Adenocarcinoma”的文献数据\href{http://lit-evi.hzau.edu.cn/PanCancer/by-cancer}{}。此外，还通过爬虫技术，提取了与前列腺癌迁移（Metastatic Prostate Cancer）相关的2000篇PMID文献数据。爬取的数据包括文献的摘要、句子和相关基因等信息，汇总形成 \texttt{rawdata} 数据集。
+
+\subsection*{方法}
+
+\subsubsection*{关键词筛选}
+
+关键词筛选通过结合人工与机器学习模型（如TF-IDF）双重手段完成，具体步骤如下：
+\begin{itemize}
+    \item \textbf{初步筛选}：利用机器学习模型对文献句子进行分析，基于关键词的频率与TF-IDF评分筛选出潜在的重要关键词。（已失败）
+    \item \textbf{人工校验}：对于机器筛选出的高分关键词，由我们进行人工校正，去除不相关或误判的词汇，确保关键词的精准性。
+\end{itemize}
+
+\subsubsection*{基因筛选}
+
+通过前列腺癌转移相关的关键词，在 \texttt{rawdata} 数据集中进行句子匹配，筛选出与关键词相关的句子及其对应的基因信息。对于每一个匹配的关键词，获取其关联的基因。
+
+\subsubsection*{基因功能富集}
+
+对筛选得到的基因列表，进行Gene Ontology (GO) 和KEGG通路的功能富集分析。分析从细胞组分（CC）、生物过程（BP）和分子功能（MF）三个层面展开，探索与前列腺癌转移相关的生物学功能与信号通路。
+
+\subsubsection*{基因验证}
+
+对筛选得到的基因列表，再进行Human Phenotype Ontology（HPO）分析，验证是否属于前列腺癌病变有关。
+
+\subsection*{数据处理}
+
+\begin{itemize}
+    \item \textbf{数据处理工具}：本研究使用了Python的自然语言处理库 \texttt{spaCy} 来处理文献中的句子与关键词匹配过程，并使用GO和KEGG数据库进行基因的功能富集分析。
+    \item \textbf{数据结果处理与合并}：在所有筛选出的文献中，将不同方法筛选的结果进行交叉验证，并将其合并，确保筛选结果的准确性。最终输出基因列表，筛选出可能对前列腺癌转移有重要影响的核心基因。
+\end{itemize}
+\textbf{伪代码流程如下：}
+
+
+\begin{algorithm}
+\caption{筛选与前列腺癌转移相关的基因}
+\begin{algorithmic}[1]
+\State \textbf{输入}: 原始数据文件 (TSV 格式), 关键词文件 (Excel 格式)
+\State \textbf{输出}: 筛选到的与前列腺癌转移相关的基因列表, 以及其相关信息与富集结果
+
+\State \textbf{步骤}:
+
+\State \textbf{  加载数据文件}
+\State \quad 从路径读取包含前列腺癌数据的TSV文件到 \texttt{data}
+\State \quad 显示数据前几行和列名称，理解数据结构
+
+\State \textbf{  提取前964行数据}
+\State \quad 将 \texttt{data} 中的前964行提取到 \texttt{top\_964\_pmids}
+
+\State \textbf{  加载关键词列表}
+\State \quad 读取包含与前列腺癌转移相关的关键词的Excel文件
+\State \quad 将关键词转换为列表 \texttt{keywords}
+
+\State \textbf{  筛选包含关键词的句子}
+\State \quad 在 \texttt{top\_964\_pmids} 的 \texttt{Sentence} 列中，筛选出包含 \texttt{keywords} 的行
+\State \quad 将这些行保存为 \texttt{matched\_pmids}
+
+\State \textbf{  提取匹配的PMID}
+\State \quad 从 \texttt{matched\_pmids} 中提取 \texttt{PMID} 列，并保存为 \texttt{matched\_pmids\_list}
+
+\State \textbf{  提取相关信息}
+\State \quad 从 \texttt{matched\_pmids} 中提取 \texttt{PMID}, \texttt{Gene}, 和 \texttt{Sentence} 列，保存为 \texttt{matched\_data}
+
+\State \textbf{  保存匹配数据}
+\State \quad 将 \texttt{matched\_data} 写入CSV文件
+
+\State \textbf{  提取基因名}
+\State \quad 从 \texttt{matched\_data} 中提取唯一的基因名 \texttt{gene\_list}
+\State \quad 将基因名保存到文本文件 \texttt{gene\_list.txt}
+
+\State \textbf{  统计基因数量}
+\State \quad 统计基因列表中的基因数量并输出
+
+\State \textbf{  进行富集分析}
+\end{algorithmic}
+\end{algorithm}
+
+\section*{结果}
+通过富集分析，我们得到了一组与前列腺癌转移密切相关的基因，包括TP53、SIRPB1、PSMA等核心基因。
+
+\subsection*{功能富集}
+图一展示了GO富集分析的结果。从图中可以看到几个主要的富集模块：
+\begin{itemize}
+\item \textbf{miRNA相关过程}：例如“miRNA metabolic process”、“positive regulation of miRNA metabolic process”，这类条目指向与miRNA代谢或转录调控相关的生物学过程。
+\item \textbf{细胞反应}：例如“response to radiation”、“response to oxygen levels”、“response to UV”，这些条目聚集在一起，表示细胞对环境刺激的应答过程。
+\item \textbf{细胞增殖}：如“muscle cell proliferation”、“fibroblast proliferation”、“epithelial cell proliferation”等，表明某些基因与细胞增殖相关的过程有显著富集。
+\item \textbf{凋亡相关过程}：如“regulation of apoptotic signaling pathway”、“neuron apoptotic process”，说明凋亡通路在该基因集中有富集。
+\end{itemize}
+
+\subsection*{基因富集}
+图二的富集结果针对基因的功能，展示了基因富集于以下几类功能：
+\begin{itemize}
+\item\textbf{gland development（腺体发育）}
+\item\textbf{epithelial cell proliferation（上皮细胞增殖）}
+\item\textbf{regulation of miRNA metabolic process（miRNA代谢过程的调控）}
+\item\textbf{response to steroid hormone（类固醇激素反应）}
+\end{itemize}
+
+\subsection*{通路富集}
+而通过KEGG分析，我们得到了揭示了研究基因集中与多种癌症相关通路及信号通路的显著关联，以下是关键富集通路的详细分析。值得注意的是，的确有许多基因富集在了与癌症相关的通路上，但同时存在多种类型通路的富集，包括以下几类：
+
+\subsection*{1. 主要富集的通路}
+
+\begin{itemize}
+    \item \textbf{Pathways in cancer（癌症相关通路）}：这是最显著富集的通路，包含 75 个基因，富集倍数为 5.71，p 值极低（2.675958e-37），表明该通路中的基因在癌症机制中起到重要作用。
+    \item \textbf{Prostate cancer（前列腺癌）} 通路：非常显著，包含 34 个基因，富集倍数为 14.07，p 值为 2.011551e-29。这说明基因集中与前列腺癌进展的直接关联性。
+\end{itemize}
+
+\subsection*{2. 其他癌症相关通路}
+
+\begin{itemize}
+    \item \textbf{Proteoglycans in cancer（癌症中的蛋白多糖）}：富集了 42 个基因，富集倍数为 8.35，p 值为 1.346058e-26，表明这些基因可能参与了肿瘤微环境的调控。
+    \item \textbf{Pancreatic cancer（胰腺癌）} 和 \textbf{Bladder cancer（膀胱癌）}：多种癌症类型的通路在基因集中的富集表明该基因集在多个癌症类型中有显著关联性。
+\end{itemize}
+
+\subsection*{3. 信号通路}
+
+\begin{itemize}
+    \item \textbf{PI3K-Akt signaling pathway（PI3K-Akt 信号通路）}：该通路与细胞生长、增殖和存活相关，富集了 40 个基因，富集倍数为 4.48，p 值为 2.460493e-15，表明该通路在癌症细胞中的存活与增殖中起着重要作用。
+    \item \textbf{MAPK signaling pathway（MAPK 信号通路）}：富集了 33 个基因，富集倍数为 4.46，表明它与细胞增殖、分化和癌症进展密切相关。
+\end{itemize}
+
+\subsection*{4. 其他关键通路}
+
+\begin{itemize}
+    \item \textbf{Hepatitis B（乙型肝炎）} 和 \textbf{Hepatitis C（丙型肝炎）}：这些通路富集提示基因集中可能包含与病毒诱发癌症相关的机制。
+    \item \textbf{Endocrine resistance（内分泌抗性）}：富集了 28 个基因，富集倍数为 11.47，表明这些基因与内分泌治疗的耐药性有关，特别是在激素依赖型癌症中（如前列腺癌）。
+\end{itemize}
+
+KEGG 富集分析的结果表明，基因集在多种癌症相关通路中有显著富集，尤其是前列腺癌通路。PI3K-Akt 和 MAPK 信号通路的富集进一步表明，这些基因在癌细胞的生长、增殖和存活中起着重要作用。不过，这个富集结果距离我们希望得到的结果仍有不少距离，因为富集并没有产生针对癌细胞迁移有关的通路。我们针对其中的“Pathways in cancer”通路进行了可视化，得到了图三。其中粉红色标识的节点表示包含富集基因。
+
+这些结果为理解癌症（尤其是前列腺癌）的分子机制提供了重要线索，并为潜在的治疗靶点提供了方向。目前结果还有待深入探索，我们正在尝试通过HPO富集将关联的数据进行进一步的深入挖掘与数据验证。
+
+\begin{figure}[h]
+\includegraphics[width=0.9\textwidth]{go_enrichment.png} % 确保文件名正确
+\caption{GO富集分析网络图}
+\includegraphics[width=0.7\textwidth]{go_enrichment2.png} % 确保文件名正确
+\caption{GO富集分析条形图}
+\end{figure}
+
+\begin{figure}[h]
+\includegraphics[width=1.0\textwidth]{hsa05200@2x_20241017_131905.png} % 确保文件名正确
+\caption{Pathways in cancer}
+\end{figure}
+\section*{讨论}
+在开始进行探索的时候我们采用了不同的方法路线，许多都以失败告终，但是也提供了不少可参考的内容。
+
+\subsubsection*{路线一}
+我们一开始计划采用机器学习的方法，通过大量学习前列腺癌迁移的相关文献得到这些文献的特征，通过这些学习得到的特征实现对目标基因表型的抓取，以及读取其对应的基因实体。该路线方法的但是我们目前还在探索中。
+
+\subsubsection*{路线二}
+在后来将目标转向通过爬取有关“Metastatic Prostate Cancer”的文献，尝试通过对爬取文献与那964组文献的PMID的交集，进而可以得到与前列腺癌迁移有关的文献PMID。但是由于964组文献的内容不是最新的研究，所以导致很多PMID都不能匹配上。于是我们转而爬取了更多的数据，最后的匹配结果证明，那964组对前列腺癌研究的文献数据，大多是七、八年前的数据了。所以这条路线也失败了。
+
+\subsubsection*{路线三}
+就是目前我们已经完成的部分，下一阶段是进一步优化文本筛选的流程与将富集得到的通路结果尝试与精准医疗方式关联，得到最终的知识图谱。
+
+\subsubsection*{关于结果数据}
+详细的数据请查看附录部分，目前我们得到的许多结果都只是针对影响前列腺癌的基因，并没有细化到针对其癌细胞迁移的机理，所以得到的数据都只能作为初步的筛查，并不能确切说明现有研究数据中这些基因被验证为是可以影响迁移机理的因素。所以我们可能还需要进一步进行更细化的关键词筛选，以及对964组数据进行新数据的扩展，才能得到更精确全面的结果。
+
+\end{document}

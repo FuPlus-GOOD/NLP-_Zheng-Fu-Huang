@@ -1,0 +1,3 @@
+id 	 name
+OMIM:618188 	 Hyperparathyroidism, transient neonatal
+ORPHA:417 	 Neonatal severe primary hyperparathyroidism

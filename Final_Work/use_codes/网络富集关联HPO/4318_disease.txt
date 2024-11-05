@@ -1,0 +1,3 @@
+id 	 name
+ORPHA:1040 	 Metaphyseal anadysplasia
+OMIM:613073 	 Metaphyseal anadysplasia 2

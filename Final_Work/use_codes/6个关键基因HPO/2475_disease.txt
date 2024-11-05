@@ -1,0 +1,5 @@
+id 	 name
+OMIM:607341 	 Focal cortical dysplasia of taylor
+ORPHA:99802 	 Hemimegalencephaly
+ORPHA:457485 	 Macrocephaly-intellectual disability-neurodevelopmental disorder-small thorax syndrome
+OMIM:616638 	 Smith-Kingsmore syndrome

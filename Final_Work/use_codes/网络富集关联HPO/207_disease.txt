@@ -1,0 +1,8 @@
+id 	 name
+OMIM:114480 	 Breast cancer
+OMIM:114500 	 Colorectal cancer
+ORPHA:201 	 Cowden syndrome
+OMIM:615109 	 Cowden syndrome 6
+ORPHA:2495 	 Meningioma
+ORPHA:744 	 Proteus syndrome
+OMIM:176920 	 Proteus syndrome, somatic

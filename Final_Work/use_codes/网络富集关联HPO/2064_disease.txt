@@ -1,0 +1,6 @@
+id 	 name
+OMIM:613659 	 Gastric cancer, somatic
+OMIM:137800 	 Glioma susceptibility 1
+ORPHA:388 	 Hirschsprung disease
+OMIM:211980 	 Lung cancer, susceptibility to
+OMIM:619465 	 Visceral neuropathy, familial, 2, autosomal recessive

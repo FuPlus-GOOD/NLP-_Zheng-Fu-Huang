@@ -1,0 +1,4 @@
+id 	 name
+OMIM:616069 	 Inflammatory skin and bowel disease, neonatal, 2
+OMIM:211980 	 Lung cancer, susceptibility to
+ORPHA:294023 	 Neonatal inflammatory skin and bowel disease

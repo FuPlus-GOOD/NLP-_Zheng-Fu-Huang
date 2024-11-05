@@ -1,0 +1,25 @@
+id 	 name
+OMIM:114480 	 Breast cancer
+ORPHA:168984 	 CLAPO syndrome
+ORPHA:140944 	 CLOVES syndrome
+OMIM:613089 	 Capillary malformation of the lower lip, lymphatic malformation of face and neck, asymmetry of face and limbs, and partial/generalized overgrowth
+OMIM:619538 	 Cerebral cavernous malformations 4
+OMIM:114500 	 Colorectal cancer
+OMIM:612918 	 Congenital lipomatous overgrowth, vascular malformations, and epidermal nevi
+ORPHA:201 	 Cowden syndrome
+OMIM:615108 	 Cowden syndrome 5
+OMIM:162900 	 Epidermal nevus, somatic
+ORPHA:221061 	 Familial cerebral cavernous malformation
+OMIM:613659 	 Gastric cancer, somatic
+ORPHA:276280 	 Hemihyperplasia-multiple lipomatosis syndrome
+ORPHA:99802 	 Hemimegalencephaly
+OMIM:114550 	 Hepatocellular carcinoma
+OMIM:182000 	 Keratosis, seborrheic, somatic
+ORPHA:90308 	 Klippel-TrÃ©naunay syndrome
+OMIM:211980 	 Lung cancer, susceptibility to
+ORPHA:144 	 Lynch syndrome
+OMIM:155500 	 Macrodactyly, somatic
+ORPHA:60040 	 Megalencephaly-capillary malformation-polymicrogyria syndrome
+OMIM:602501 	 Megalencephaly-capillary malformation-polymicrogyria syndrome, somatic
+ORPHA:2495 	 Meningioma
+ORPHA:314662 	 Segmental progressive overgrowth syndrome with fibroadipose hyperplasia

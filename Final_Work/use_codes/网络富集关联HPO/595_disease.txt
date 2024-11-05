@@ -1,0 +1,7 @@
+id 	 name
+OMIM:114500 	 Colorectal cancer
+ORPHA:52416 	 Mantle cell lymphoma
+ORPHA:29073 	 Multiple myeloma
+OMIM:254500 	 Multiple myeloma
+ORPHA:892 	 Von Hippel-Lindau disease
+OMIM:193300 	 von Hippel-Lindau syndrome

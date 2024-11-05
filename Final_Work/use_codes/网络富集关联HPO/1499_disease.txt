@@ -1,0 +1,14 @@
+id 	 name
+ORPHA:1501 	 Adrenocortical carcinoma
+OMIM:114500 	 Colorectal cancer
+ORPHA:54595 	 Craniopharyngioma
+ORPHA:873 	 Desmoid tumor
+OMIM:617572 	 Exudative vitreoretinopathy 7
+ORPHA:891 	 Familial exudative vitreoretinopathy
+OMIM:114550 	 Hepatocellular carcinoma
+OMIM:155255 	 MEDULLOBLASTOMA
+OMIM:615075 	 Neurodevelopmental disorder with spastic diplegia and visual defects
+ORPHA:33402 	 Pediatric hepatocellular carcinoma
+ORPHA:91414 	 Pilomatrixoma
+OMIM:132600 	 Pilomatrixoma, somatic
+ORPHA:404473 	 Severe intellectual disability-progressive spastic diplegia syndrome

@@ -1,0 +1,2 @@
+id 	 name
+OMIM:618287 	 Autoinflammatory disease, familial, Behcet-like-3

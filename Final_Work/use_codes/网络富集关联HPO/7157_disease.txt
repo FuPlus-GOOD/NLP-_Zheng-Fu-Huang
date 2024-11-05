@@ -1,0 +1,19 @@
+id 	 name
+ORPHA:1501 	 Adrenocortical carcinoma
+OMIM:202300 	 Adrenocortical carcinoma, pediatric
+OMIM:618165 	 Bone marrow failure syndrome 5
+OMIM:114480 	 Breast cancer
+OMIM:114500 	 Colorectal cancer
+ORPHA:96253 	 Cushing disease
+ORPHA:3318 	 Essential thrombocythemia
+ORPHA:1333 	 Familial pancreatic carcinoma
+OMIM:137800 	 Glioma susceptibility 1
+OMIM:114550 	 Hepatocellular carcinoma
+ORPHA:145 	 Hereditary breast and/or ovarian cancer syndrome
+ORPHA:524 	 Li-Fraumeni syndrome
+OMIM:151623 	 Li-Fraumeni syndrome
+OMIM:607107 	 Nasopharyngeal carcinoma
+ORPHA:668 	 Osteosarcoma
+OMIM:259500 	 Osteosarcoma
+ORPHA:2807 	 Papilloma of choroid plexus
+OMIM:260500 	 Papilloma of choroid plexus

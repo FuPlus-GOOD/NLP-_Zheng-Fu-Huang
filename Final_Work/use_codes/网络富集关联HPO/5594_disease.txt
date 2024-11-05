@@ -1,0 +1,3 @@
+id 	 name
+ORPHA:261330 	 Distal 22q11.2 microdeletion syndrome
+OMIM:619087 	 Noonan syndrome 13

@@ -1,0 +1,3 @@
+id 	 name
+OMIM:613630 	 Fetal encasement syndrome
+OMIM:619339 	 Popliteal pterygium syndrome, Bartsocas-Papas type 2
