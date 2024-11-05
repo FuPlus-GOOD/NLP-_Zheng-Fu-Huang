@@ -1,3 +1,5 @@
+# 前期的第一次尝试TF-IDF值筛选关键词，但是由于主题问题失败了
+
 import pandas as pd
 from sklearn.feature_extraction.text import TfidfVectorizer
 
