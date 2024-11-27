@@ -1,4 +1,6 @@
 # 前期关键词筛选（失败路线）
+# 使用斯坦福依存树提取主谓宾实体
+
 import pandas as pd
 from sklearn.feature_extraction.text import TfidfVectorizer
 import stanza
