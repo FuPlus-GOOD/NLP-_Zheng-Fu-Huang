@@ -9,7 +9,6 @@
 
 ## （一）代码存放说明
 简单讲讲各个分析流程模块的代码吧：
-![image](https://github.com/user-attachments/assets/2ca90188-a29a-4389-945c-80966856b9b1)
 
 ### 模块一：前期文本收集预处理
 
